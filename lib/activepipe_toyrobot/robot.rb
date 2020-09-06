@@ -66,9 +66,8 @@ module ActivepipeToyrobot
     end
 
     def report
-      return "Not on board" if @position.nil? or @direction.nil?
+      return false if @position.nil? or @direction.nil?
       puts "#{@name} #{@position[:x]},#{@position[:y]},#{@direction.to_s.upcase}"
-      "#{@position[:x]},#{@position[:y]},#{@direction.to_s.upcase}"
     end
   end
 end
