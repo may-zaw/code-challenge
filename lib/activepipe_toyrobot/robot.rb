@@ -72,7 +72,7 @@ module ActivepipeToyrobot
     def report
       return false if @position.nil? || @direction.nil?
 
-      puts "#{@name} #{@position[:x]},#{@position[:y]},#{@direction.to_s.upcase}"
+      puts "#{@name}: #{@position[:x]},#{@position[:y]},#{@direction.to_s.upcase}"
     end
   end
 end

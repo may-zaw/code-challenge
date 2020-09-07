@@ -22,7 +22,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The test data files are provided under spec/fixtures in the project.
+
+To run the test from the terminal under the project root dir, run:
+\$./lib/read.rb spec/fixtures/commands1.txt
 
 ## Development
 
@@ -33,7 +36,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/activepipe_toyrobot. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/activepipe_toyrobot/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 

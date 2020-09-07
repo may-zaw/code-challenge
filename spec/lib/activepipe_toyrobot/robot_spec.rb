@@ -261,14 +261,14 @@ RSpec.describe ActivepipeToyrobot::Robot do
       it 'does not output' do
         expect do
           @robot.report
-        end.to_not output("#{name} #{x},#{y},#{direction.upcase}\n").to_stdout
+        end.to_not output("#{name}: #{x},#{y},#{direction.upcase}\n").to_stdout
       end
     end
     context 'valid current position' do
       it 'reports the current position and direction' do
         expect do
           @robot.report
-        end.to output("#{name} #{x},#{y},#{direction.upcase}\n").to_stdout
+        end.to output("#{name}: #{x},#{y},#{direction.upcase}\n").to_stdout
       end
     end
   end
