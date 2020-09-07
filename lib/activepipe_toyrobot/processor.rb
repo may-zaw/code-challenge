@@ -1,17 +1,16 @@
 require_relative "./robot"
 
 module ActivepipeToyrobot
-  class Error < StandardError; end
+  class Processor
+    def self.execute(robot, command, place_args)
+      current_robot = nil
 
-  def self.execute(robot, command, place_args)
-    current_robot = nil
-    ActivepipeToyrobot::Robot.all.map do |tr|
-      current_robot = tr if tr.name == robot
-    end
+      ActivepipeToyrobot::Robot.all.map do |tr|
+        current_robot = tr if tr.name == robot
+      end
+      return nil if current_robot.nil? && command != :place
 
-    return if current_robot.nil? && command != :place
-
-    case command
+      case command
       when :place
         coordinates = place_args.split(/,/)
         puts("Invalid place arguments for #{robot}") if coordinates.count != 3
@@ -19,12 +18,9 @@ module ActivepipeToyrobot
         x = coordinates[0].to_i
         y = coordinates[1].to_i
         direction = coordinates[2].downcase.to_sym
-        if current_robot.nil?
-          r = ActivepipeToyrobot::Robot.new(robot,x,y,direction)
-          # r.place(x, y, direction)
-        else
-          current_robot.place(x, y, direction)
-        end
+
+        current_robot = current_robot.nil? ? ActivepipeToyrobot::Robot.new(robot,x,y,direction) : current_robot.place(x, y, direction)
+
       when :move
         current_robot.move
       when :left
@@ -36,5 +32,7 @@ module ActivepipeToyrobot
       else
         puts "Invalid command name"
       end
+      current_robot
+    end
   end
 end

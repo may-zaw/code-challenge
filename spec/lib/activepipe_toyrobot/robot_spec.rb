@@ -49,7 +49,6 @@ RSpec.describe ActivepipeToyrobot::Robot do
     end
     context 'invalid position outside of the range' do
       it 'ignores move' do
-        expect(@robot.place(7, 0, :north)).to be_falsey
         expect(@robot.direction).to eq(current_direction)
         expect(@robot.position).to eq(current_position)
       end

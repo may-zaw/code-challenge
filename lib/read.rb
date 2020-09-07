@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-require_relative './activepipe_toyrobot/execute'
+require_relative './activepipe_toyrobot/processor'
 
 file = ARGV.first # file path
 
@@ -12,5 +12,5 @@ File.readlines(file).each do |line|
   if (command == :place && data.length == 3)
     place_args = data[2]
   end
-  ActivepipeToyrobot.execute(robot, command, place_args)
+  ActivepipeToyrobot::Processor.execute(robot, command, place_args)
 end

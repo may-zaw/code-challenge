@@ -26,6 +26,7 @@ module ActivepipeToyrobot
         @position = { x: x, y: y }
         @direction = direction
       end
+      self
     end
 
     def move
@@ -49,6 +50,7 @@ module ActivepipeToyrobot
       if ActivepipeToyrobot::Validation.on_the_board?(new_x_position, new_y_position) && ActivepipeToyrobot::Validation.possible_collision?(new_x_position, new_y_position)
         @position = { x: new_x_position, y: new_y_position }
       end
+      self
     end
 
     def turn_left
@@ -56,6 +58,7 @@ module ActivepipeToyrobot
 
       index = DIRECTIONS.index(@direction)
       @direction = DIRECTIONS.rotate(-1)[index]
+      self
     end
 
     def turn_right
@@ -63,10 +66,12 @@ module ActivepipeToyrobot
 
       index = DIRECTIONS.index(@direction)
       @direction = DIRECTIONS.rotate()[index]
+      self
     end
 
     def report
-      return false if @position.nil? or @direction.nil?
+      return false if @position.nil? || @direction.nil?
+
       puts "#{@name} #{@position[:x]},#{@position[:y]},#{@direction.to_s.upcase}"
     end
   end

@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name          = "activepipe_toyrobot"
   spec.version       = ActivepipeToyrobot::VERSION
   spec.authors       = ["May"]
-  spec.email         = ["mayhtoozaw@myadbox.com.au"]
+  spec.email         = ["mayhtoo.zaw@gmail.com"]
 
   spec.summary       = %q{"Toy Robot code challenge"}
   # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
